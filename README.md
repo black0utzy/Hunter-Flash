@@ -42,3 +42,25 @@ This repository includes a chaos generator (`gerador.py`). Rather than mocking s
 Install the required Python packages (such as the `rich` library for the terminal UI):
 ```bash
 pip install -r requirements.txt
+```
+
+### 2. Compile the Core DLL (Requires GCC with OpenMP)
+Compile the C engine into a standalone dynamic library. This generates the `core.dll` file that Python will consume:
+```bash
+gcc -O3 -march=native -fopenmp -shared -static -o core.dll main.c
+```
+
+### 3. Generate the Synthetic Test Dataset
+Run the chaos generator to create a 1,000,000-line log file (`teste.log`) with injected threats:
+```bash
+python gerador.py
+```
+
+### 4. Run Hunter Flash
+Execute the main pipeline to parse, sort, and detect threats in real-time:
+```bash
+python hunter_flash.py
+```
+
+---
+*Developed with a focus on Software Engineering, High-Performance Computing, and Information Security.*
