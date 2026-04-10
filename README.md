@@ -38,10 +38,7 @@ This repository includes a chaos generator (`gerador.py`). Rather than mocking s
 
 ## 🛠️ How to Run
 
-### 1. Compile the Core DLL (Requires GCC with OpenMP)
-
+### 1. Install Dependencies
+Install the required Python packages (such as the `rich` library for the terminal UI):
 ```bash
 pip install -r requirements.txt
-````
-```bash
-gcc -O3 -march=native -fopenmp -shared -static -o core.dll main.c
